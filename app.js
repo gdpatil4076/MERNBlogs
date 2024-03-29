@@ -39,10 +39,14 @@ ConnectMongoDB(process.env.MONGO_URL)
 app.use(express.json());
 app.set("views" , path.resolve('./views'));
 
-app.use(cors({
-    origin : "https://blog-frontend-9ry6.vercel.app",
-    credentials : true,
-}));
+// app.use(cors({
+//     origin : "https://blog-frontend-9ry6.vercel.app",
+//     credentials : true,
+// }));
+
+// Enable CORS for all origins
+app.use(cors());
+
 
 app.use(express.urlencoded({extended : false})); 
 app.use(cookieParser({
