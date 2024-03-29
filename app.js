@@ -40,7 +40,7 @@ app.use(express.json());
 app.set("views" , path.resolve('./views'));
 
 app.use(cors({
-    origin : "http://localhost:3000",
+    origin : "https://blog-frontend-9ry6.vercel.app",
     credentials : true,
 }));
 
