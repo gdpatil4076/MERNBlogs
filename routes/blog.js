@@ -30,9 +30,9 @@ router.post('/addnew', upload.single('profileImage'),async (req,res)=>{
     try{
         console.log("Addition Started !");
         if (!req.user) return res.status(204).json({msg : "User Not found"});
-
+        console.log("check 1");
         const cloudiUrl = await uploadOnCloudinary(req.file.path);
-
+console.log("check 2");
         const profileImageUrl = cloudiUrl.secure_url; 
 
         const publicId = cloudiUrl.public_id;
@@ -49,7 +49,7 @@ router.post('/addnew', upload.single('profileImage'),async (req,res)=>{
         });
 
         fs.unlinkSync(req.file.path); // delete file on local server 
-
+        console.log("check 3");
         return res.status(200).json({msg : "Blog Added Successfully"});
     
     }
